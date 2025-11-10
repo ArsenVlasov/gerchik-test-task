@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public abstract class BasePage {
 
-    private final SelenideElement header = $("rz-main-header");
+    private final SelenideElement header = $("rz-main-header").as("Header");
     private final SelenideElement searchInput = getLocatorByDataTestId("search-suggest-input");
     private final SelenideElement searchSubmitButton = getLocatorByDataTestId("search-suggest-submit");
     private final SelenideElement searchMicButton = getLocatorByDataTestId("search-suggest-mic");

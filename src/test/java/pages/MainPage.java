@@ -12,11 +12,11 @@ public class MainPage extends BasePage{
     private final SelenideElement pageSidebar = $("rz-main-page-sidebar");
 
     public MainPage shouldSeeMainPage() {
+        shouldSeeHeader();
         mainPageForm.shouldBe(visible);
         topPageBanner.shouldBe(visible);
         pageContent.shouldBe(visible);
         pageSidebar.shouldBe(visible);
-        shouldSeeHeader();
         return this;
     }
 }

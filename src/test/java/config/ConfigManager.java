@@ -2,15 +2,16 @@ package config;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public final class ConfigManager {
-    private static final String configFilePath = "src/test/java/config.properties";
+    private static final String configFileFullName = "config.properties";
     private static final Properties properties = new Properties();
 
     static {
-        try (FileInputStream fis = new FileInputStream(configFilePath)) {
-            properties.load(fis);
+        try (InputStream input = ConfigManager.class.getClassLoader().getResourceAsStream(configFileFullName)) {
+            properties.load(input);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -11,6 +11,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -44,7 +45,8 @@ public class SearchResultPage extends BasePage {
     }
 
     private ElementsCollection getAllAvailableProducts() {
-        return goodsCatalog.$$("rz-product-tile:not(.tile-disabled)");
+        return goodsCatalog.$$("rz-product-tile:not(.tile-disabled)")
+                .shouldHave(sizeGreaterThan(0));
     }
 
     private List<Integer> getAllAvailableProductsPrices() {
